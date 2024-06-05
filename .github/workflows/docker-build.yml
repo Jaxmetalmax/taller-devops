@@ -30,3 +30,6 @@ jobs:
     steps:
     - name: Deploy on render
       run: curl --url https://api.render.com/deploy/srv-cpftt6gl5elc738jdbtg?key=bnpnvEam1zE
+
+    - name: notify discord
+      run: curl -X "POST" --url ${{ vars.DISCORDWEBHOOK }} --header "Content-Type:application/json" -d '{"username":"CI-User", "avatar_url":"", "content":"Se hizo el Build de web en render, revisen"}'
